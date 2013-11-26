@@ -3,6 +3,7 @@
  * @Author Rory Standley <rorystandley@gmail.com> https://github.com/rorystandley/MySQL-CRUD-PHP-OOP
  * @Version 1.3
  * @Package Database
+ * For now this will be adapted from the Github repo until I get a chance to give it its own correct DB class
  */
 class Database{	
 	/*
