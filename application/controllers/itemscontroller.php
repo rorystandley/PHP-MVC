@@ -7,7 +7,6 @@ class ItemsController extends Controller {
     }  
  
     function view($id = null,$name = null) {
-     
         $this->set('title',$name.' - My Todo List App');
         $this->set('todo',$this->Item->select($id));
         $this->set('sql',$this->Item->getResult());
@@ -15,7 +14,6 @@ class ItemsController extends Controller {
     }
      
     function viewall() {
- 
         $this->set('title','All Items - My Todo List App');
         $this->set('todo',$this->Item->selectAll());
     }
