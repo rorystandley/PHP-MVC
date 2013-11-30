@@ -39,7 +39,7 @@ class HTML {
 	}
 
 	function includeCss($fileName) {
-		$data = '<style href="'.BASE_PATH.'/css/'.$fileName.'.css"></style>';
+		$data = '<link rel="stylesheet" href="'.BASE_PATH.'/public/css/'.$fileName.'.css">';
 		return $data;
 	}
 }
