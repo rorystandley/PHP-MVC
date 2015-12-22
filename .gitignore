@@ -1,7 +1,6 @@
 node_modules
-public_html
-!public_html/.htaccess
-!public_html/index.php
+public_html/css
+public_html/js
 database.json
 .DS_Store
 /vendor/
