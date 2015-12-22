@@ -1,0 +1,7 @@
+node_modules
+dev
+public_html/
+!public_html/.htaccess
+!public_html/index.php
+database.json
+.DS_Store
