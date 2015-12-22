@@ -1,5 +1,5 @@
 node_modules
-public_html/
+public_html
 !public_html/.htaccess
 !public_html/index.php
 database.json
