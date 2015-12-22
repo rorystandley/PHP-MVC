@@ -4,3 +4,4 @@ public_html/
 !public_html/index.php
 database.json
 .DS_Store
+/vendor/

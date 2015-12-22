@@ -1,0 +1,11 @@
+{
+    "name": "rorystandley/php-mvc",
+    "description": "A small PHP MVC Framework",
+    "authors": [
+        {
+            "name": "Rory Standley",
+            "email": "rorystandley@gmail.com"
+        }
+    ],
+    "require": {}
+}
