@@ -69,7 +69,8 @@ function callHook() {
         call_user_func_array(array($dispatch, "afterAction"), $queryString);
     } else {
         /* Error Generation Code Here */
-        die('Could not find the method.');
+        $dispatch = new ErrorController;
+        call_user_func_array(array($dispatch, 'notFound'), []);
     }
 }
 
