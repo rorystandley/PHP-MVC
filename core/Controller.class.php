@@ -38,7 +38,7 @@ class Controller {
      * @return null             
      */
     protected function redirect($route = "/", $queryParam = []) {
-        $query = "";
+        $query = "/";
         if ( count($queryParam) > 0 ) {
             $query = "?";
             $count = 1;
@@ -51,6 +51,6 @@ class Controller {
             }
             $query = $query;
         }
-        header("Location: $route$query");
+        header("Location: /$route$query");
     }
 }
