@@ -152,7 +152,7 @@ class Model {
 	 * @param  array  $data 
 	 * @return booleane
 	 */
-	public function _save($data = array()) {
+	public function save($data = array()) {
 		$data = array_merge((array) $this->data, $data);
 
 		$data['created'] = date('Y-m-d H:i:s');
