@@ -9,6 +9,7 @@ class Controller {
         $this->_controller = ucfirst($controller);
         $this->_action = $action;
         $this->view = new View;
+        $this->input = new Input;
     }
 
     /**
