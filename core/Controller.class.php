@@ -20,9 +20,36 @@ class Controller {
         $this->view->set($name, $value);
     }
 
+    /**
+     * Instantiate a give model
+     * @param  string $model name of model
+     * @return null
+     */
     protected function model($model = '') {
         if ( $model != '' ) {
             $this->$model = new $model;
         }
+    }
+    /**
+     * Redirect a user to a given route
+     * @param  string $route
+     * @param  array  $queryParam parameters that can be appended to redirect URL
+     * @return null             
+     */
+    protected function redirect($route = "/", $queryParam = []) {
+        $query = "";
+        if ( count($queryParam) > 0 ) {
+            $query = "?";
+            $count = 1;
+            foreach ($queryParam as $key => $value) {
+                $query .= "$key=$value";
+                if ( $count != count($queryParam) ) {
+                    $query .= '&';
+                }
+                $count++;
+            }
+            $query = $query;
+        }
+        header("Location: $route$query");
     }
 }
