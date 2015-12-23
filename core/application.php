@@ -16,7 +16,11 @@ spl_autoload_register(function($className) {
         @include_once( '../core/' . ucfirst($className) . '.class.php' );
     }else {
         /* Error Generation Code Here */
-        die("Could not find the class $className.");
+        @include_once( '../application/controllers/ErrorController.php' );
+         /* Error Generation Code Here */
+        $dispatch = new ErrorController;
+        call_user_func_array(array($dispatch, 'notFound'), []);
+        exit;
     }
 });
 
