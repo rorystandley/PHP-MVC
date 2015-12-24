@@ -22,20 +22,26 @@ class Controller {
     }
 
     /**
-     * Instantiate a give model
+     * Instantiate a given model
+     * Arguments for now will only work with one inst' of a model
      * @param  string $model name of model
      * @return null
      */
-    protected function model($models = '') {
+    protected function model($models = '', $arguments = []) {
         if ( count($models) > 1 ) {
             // We have an array of models to work with
             foreach ($models as $model) {
                 $this->$model = new $model;
             }
         } else if ( $models != '' ) {
-            $this->$models = new $models;
+            if ( count($arguments) > 0 ) {
+                $this->$models = new $models( implode(',', $arguments) );
+            } else {
+                $this->$models = new $models;
+            }
         }
     }
+    
     /**
      * Redirect a user to a given route
      * @param  string $route
