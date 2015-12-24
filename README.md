@@ -4,6 +4,10 @@ A very simple PHP MVC framework.
 
 Point your vhost at the public_html folder.
 
+Install the framework with the following command -
+
+	composer create-project rorystandley/php-mvc .
+
 To get up and running use the below tools to help -
 
 ## DB-Migrations
