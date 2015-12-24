@@ -49,8 +49,7 @@ class Controller {
                 }
                 $count++;
             }
-            $query = $query;
         }
-        header("Location: /$route$query");
+        header("Location: $route$query");
     }
 }
