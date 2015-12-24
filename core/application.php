@@ -9,14 +9,14 @@ include("config.php");
 spl_autoload_register(function($className) {
 
     if ( file_exists( '../application/controllers/' . ucfirst($className) . '.php' ) ) {
-        @include_once( '../application/controllers/' . ucfirst($className) . '.php' );
+        include_once( '../application/controllers/' . ucfirst($className) . '.php' );
     } else if ( file_exists( '../application/models/' . ucfirst($className) . '.php' ) ) {
-        @include_once( '../application/models/' . ucfirst($className) . '.php' );
+        include_once( '../application/models/' . ucfirst($className) . '.php' );
     } else if ( file_exists( '../core/' . ucfirst($className) . '.class.php' ) ) {
-        @include_once( '../core/' . ucfirst($className) . '.class.php' );
+        include_once( '../core/' . ucfirst($className) . '.class.php' );
     }else {
         /* Error Generation Code Here */
-        @include_once( '../application/controllers/ErrorController.php' );
+        include_once( '../application/controllers/ErrorController.php' );
          /* Error Generation Code Here */
         $dispatch = new ErrorController;
         call_user_func_array(array($dispatch, 'notFound'), []);
