@@ -26,9 +26,14 @@ class Controller {
      * @param  string $model name of model
      * @return null
      */
-    protected function model($model = '') {
-        if ( $model != '' ) {
-            $this->$model = new $model;
+    protected function model($models = '') {
+        if ( count($models) > 1 ) {
+            // We have an array of models to work with
+            foreach ($models as $model) {
+                $this->$model = new $model;
+            }
+        } else if ( $models != '' ) {
+            $this->$models = new $models;
         }
     }
     /**
