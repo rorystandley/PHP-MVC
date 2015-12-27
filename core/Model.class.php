@@ -110,14 +110,14 @@ class Model {
 	 * @param  array  $columns
 	 * @return	array
 	 */
-	public function everything($columns = array()) {
+	public function everything($columns = array(), $order = '') {
 		$columnNames = "*";
 		// Check to see if we have column names to add to our query
 		if ( count($columns) > 0 ) {
 			$columnNames = implode(",", $columns);
 		}
 
-		$this->db->select($this->tableName, $columnNames);
+		$this->db->select($this->tableName, $columnNames, null, '1 = 1 ORDER BY '.$order);
 		return $this->db->getResult();
 	}
 
