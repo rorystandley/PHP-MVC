@@ -277,17 +277,6 @@ class Model {
 	}
 
 	/**
-	 * Fetch the fields of a model. You can also remove fields from the returned array
-	 * before passing back
-	 * @param  array  $removeColumns these are the fields to be removed from the returned array
-	 * @return array                
-	 */
-	public function fetchFields($removeColumns =  array())  {
-		$result = $this->db->getFields($this->tableName);
-		return $result;
-	}
-
-	/**
 	 * Specifically for Fishbowl at the moment, we need to remove some columns from the data we get and 
 	 * store
 	 * @param  array  $arr           original array
