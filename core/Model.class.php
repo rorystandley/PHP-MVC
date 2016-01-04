@@ -162,11 +162,13 @@ class Model {
 	 * @param  array  $data 
 	 * @return booleane
 	 */
-	public function save($data = array()) {
+	public function save($data = array(), $timestamps = false) {
 		$data = array_merge((array) $this->data, $data);
 
-		$data['created'] = date('Y-m-d H:i:s');
-		$data['updated'] = date('Y-m-d H:i:s');
+		if ( $timestamps ) {
+			$data['created'] = date('Y-m-d H:i:s');
+			$data['updated'] = date('Y-m-d H:i:s');
+		}
 
 		$save = $this->db->insert($this->tableName, $data);
 
