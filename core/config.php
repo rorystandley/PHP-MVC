@@ -2,12 +2,11 @@
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-$env = 'live';
 if ( $_SERVER['SERVER_NAME'] == 'PHP-MVC.dev') {
 	$env = 'development';
 }
 
-$json = json_decode(file_get_contents( '../database.json' ),true);
+$json = json_decode(file_get_contents( '../database.json' ), true);
 $dbhost = isset($json[$env]["host"]) ? $json[$env]["host"] : "";
 $dbhost = isset($json[$env]["port"]) ? $dbhost.":".$json[$env]["port"] : $dbhost;
 $dbuser = isset($json[$env]["user"]) ? $json[$env]["user"] : "";
