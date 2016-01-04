@@ -161,11 +161,6 @@ class Model {
 		$data['created'] = date('Y-m-d H:i:s');
 		$data['updated'] = date('Y-m-d H:i:s');
 
-		// we are inserting, make sure no primary key is set
-		if(isset($data[$this->primaryKey])) {
-			unset($data[$this->primaryKey]);
-		}
-
 		$save = $this->db->insert($this->tableName, $data);
 
 		// TODO this needs to be worked on with the current Database
