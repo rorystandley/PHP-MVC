@@ -232,6 +232,14 @@ class Model {
 	}
 
 	/**
+	 * Fetch the fields of a model.
+	 * @return array                
+	 */
+	public function fetchFields()  {
+		return $this->db->getFields($this->tableName);
+	}
+
+	/**
 	 * Make a GET with Curl
 	 * @param  string $action appended to the endpoint
 	 * @return response
