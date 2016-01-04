@@ -2,7 +2,14 @@
 class Model {
 
 	protected $db,
-			  $data;
+			  $data,
+			  $endpoint,
+			  $username,
+			  $password,
+			  $url,
+			  $port,
+			  $folder,
+			  $filename;
 
 	function __construct($id = null, $data = array()) {
 		// Load database
@@ -163,12 +170,6 @@ class Model {
 
 		$save = $this->db->insert($this->tableName, $data);
 
-		// TODO this needs to be worked on with the current Database
-		// $id = $this->db->insert_id();
-		// $model = $this->find($id);
-
-		// $this->data = $model->data;
-
 		return $save;
 	}
 
@@ -230,6 +231,11 @@ class Model {
 		}
 	}
 
+	/**
+	 * Make a GET with Curl
+	 * @param  string $action appended to the endpoint
+	 * @return response
+	 */
 	public function curlGet($action = "") {
 		$curl = curl_init();
 
@@ -314,6 +320,33 @@ class Model {
 	public function redirect($slug = '/', $msg = '') {
 		$msg = strlen($msg) > 0 ? '?msg='.$msg : '';
 		header('Location: '.$slug.$msg);
+	}
+
+	/**
+	 * Get a file from an sFTP location
+	 * @return String 
+	 */
+	protected function getFileFromSftp() {
+		$data = false;
+		try {
+
+			$url = sprintf('sftp://%s:%s@%s:%s%s%s', $this->username, $this->password, $this->url, $this->port, $this->folder, $this->filename);
+
+			$ch	 = curl_init();
+
+			curl_setopt($ch, CURLOPT_URL, $url);
+			curl_setopt($ch, CURLOPT_PROTOCOLS, CURLPROTO_SFTP);
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($ch, CURLOPT_HEADER, false);
+
+			$data		= curl_exec($ch);
+			$error_no	= curl_errno($ch);
+		
+		} catch (Exception $e) {
+			$this->sendError("Something unexpected has happened - ".$e->getMessage());
+		}
+		return $data;
+		
 	}
 
 	/**
