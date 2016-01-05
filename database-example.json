@@ -1,15 +1,15 @@
 {
     "development": {
-        "host": "127.0.0.1",
-        "port": "3306",
-        "user": "",
-        "password" : "",
-        "database": "",
+        "host": {"ENV": "DB_HOST"},
+        "port": {"ENV": "DB_PORT"},
+        "user": {"ENV": "DB_USER"},
+        "password" : {"ENV": "DB_PASS"},
+        "database": {"ENV": "DB_NAME"},
         "driver": "mysql",
         "multipleStatements": true
     },
- 
+
     "live": {
-    
+        
     }
 }
