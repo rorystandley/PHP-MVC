@@ -1,4 +1,4 @@
-# SCV - INTEGRATION
+# PHP - MVC
 
 A very simple PHP MVC/ORM framework. 
 

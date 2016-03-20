@@ -4,3 +4,4 @@ public_html/js
 database.json
 .DS_Store
 /vendor/
+.ideagit status
