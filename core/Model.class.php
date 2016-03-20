@@ -403,7 +403,7 @@ class Model {
 		curl_close($curl);
 
 		if ($err) {
-			$this->sendError($err . "<p>The action was - {$this->endpoint}$action</p>", $info);
+			$this->sendError($err . "<p>The action was - {$this->endpoint}$action</p>", $this->info);
 			return false;
 		} else {
 			return $response;
@@ -659,4 +659,18 @@ class Model {
     	// $result = $this->db->getResult();
     	return $this->db->numRows();
     }
+
+	public function getContents($url = '')
+	{
+        $this->endpoint = $url;
+        $html = $this->curlGet();
+        $dom = new DOMDocument;
+
+        try {
+            return @$dom->loadHTML($html);
+        } catch (Exception $e) {
+            $this->sendError("getContents - ".$e->getMessage());
+            return false;
+        }
+	}
 }

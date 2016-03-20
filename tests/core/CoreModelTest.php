@@ -194,4 +194,11 @@ class CoreModelTest extends PHPUnit_Framework_TestCase
 		$result = $this->model->removeColumns($arr, ["Column2"]);
 		$this->assertEquals($assumption, $result);
 	}
+
+	public function testGetContents()
+	{
+        // We want to get the contents of our home page
+        $contents = $this->model->getContents( 'http://www.google.co.uk' );
+        $this->assertNotFalse($contents);
+	}
 }	

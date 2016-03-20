@@ -13,7 +13,7 @@ class HomeController extends Controller {
     }  
     
     function index() {
-        $this->set('title', 'Overview - '.getenv("SCV_TITLE")); 
+        $this->set('title', 'Overview - '.getenv("SCV_TITLE"));
         $this->view->load('home/index');
         if ( $this->input->get('success') ) {
             $this->set('notification', '<div class="alert alert-success" role="alert">'.$this->input->get('success').'</div>');
